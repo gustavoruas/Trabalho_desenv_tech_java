@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import com.uniritter.monitor.domain.tipo.TipoTempo;
 
-class Medicao {
+public class Medicao {
 
     private double valor;
     private Date data;
@@ -17,7 +17,8 @@ class Medicao {
     
     TipoTempo medicao_tipo;
 
-    public Medicao(double valor, TipoTempo unidade) {
+
+	public Medicao(double valor, TipoTempo unidade) {
         this.valor = valor;
         this.data = hora_atual;
         this.data_formatada = dataFormatada;
@@ -39,5 +40,12 @@ class Medicao {
     public void setData(Date data) {
         this.data = data;
     }
+    
+    public TipoTempo getMedicao_tipo() {
+		return medicao_tipo;
+	}
 
+	public void setMedicao_tipo(TipoTempo medicao_tipo) {
+		this.medicao_tipo = medicao_tipo;
+	}
 }

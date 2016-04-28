@@ -9,7 +9,9 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
+import com.uniritter.monitor.domain.metricas.Medicao;
 import com.uniritter.monitor.domain.metricas.Metrica;
+import com.uniritter.monitor.domain.tipo.TipoTempo;
 
 @Component
 @Path("metricas")
@@ -19,19 +21,23 @@ public class MetricaController {
 	
 	
 	
+	
 	@GET
 	public Response getMetricas(){
+				
+		Metrica met = new Metrica(new Medicao(20, TipoTempo.temperatura));
+	    
+		String exemplo ="{\"metrica\": " + "\"" +met.getUnicaMedicao(1).getMedicao_tipo().toString() +"\"" + ":"
+				+ "\"" + met.getUnicaMedicao(1).getValor()+ "\"" + "}";
 		
-		String metrica = "{\"metrica\":\"Espaco em disco\"}";
-		
-		return Response.ok(metrica).build();
+		return Response.ok(exemplo).build();
 	}
 	
 	@POST
 	public Response createMetrica(Metrica metrica){
 		
 		
-		service.
+		//service.
 		
 		return Response.ok().build();
 	}
