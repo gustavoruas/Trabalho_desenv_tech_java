@@ -1,14 +1,20 @@
 package com.uniritter.monitor.domain.host;
 
+import java.net.URL;
+
 public class Host {
     private int IP;
-    private String nome;
-    private Grupo grupo;
+    private String nome;    
+    private URL url;
     
     public Host(int IP, String nome, Grupo grupo) {
         this.IP = IP;
-        this.nome = nome;
-        this.grupo = grupo;
+        this.nome = nome;        
+    }
+    
+    public Host(URL urli, String nome){
+    	this.url = urli;
+    	this.nome = nome;
     }
     
     public int getIP() {

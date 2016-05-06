@@ -1,28 +1,45 @@
 package com.uniritter.monitor.domain.host;
 
 public class Grupo {
+    
+	
+	//Servidor JSON encontrado
+	//http://developers.agenciaideias.com.br/tempo
+	//http://developers.agenciaideias.com.br/tempo/json/porto%20alegre-rs	
+	//http://www.mkyong.com/java/jackson-streaming-api-to-read-and-write-json/
+	
+    private String tipo;
+    private String nome_grupo;
+    private Host servidores;
 
-    private int id;
-    private String nome;
-
-    public Grupo(int id, String nome) {
-        this.id = id;
-        this.nome = nome;
+    public Grupo(String tipo, String nome, Host serv) {
+        this.servidores = serv;
+        this.nome_grupo = nome;
+        this.tipo = tipo;
     }
 
-    public int getId() {
-        return id;
-    }
+	public String getTipo() {
+		return tipo;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome_grupo() {
+		return nome_grupo;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome_grupo(String nome_grupo) {
+		this.nome_grupo = nome_grupo;
+	}
+
+	public Host getServidores() {
+		return servidores;
+	}
+
+	public void setServidores(Host servidores) {
+		this.servidores = servidores;
+	}
+
 }

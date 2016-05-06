@@ -5,9 +5,10 @@ import java.util.Calendar;
 import java.util.Date;
 import com.uniritter.monitor.domain.tipo.TipoTempo;
 
-class Medicao {
+public class Medicao {
 
-    private double valor;
+    private double valor_temp;
+    private double valor_umid;
     private Date data;
     private String data_formatada;
 
@@ -17,21 +18,18 @@ class Medicao {
     
     TipoTempo medicao_tipo;
 
-    public Medicao(double valor, TipoTempo unidade) {
-        this.valor = valor;
+
+	public Medicao(double temp, double umid, String hora) {
+        this.valor_temp = temp;
+        this.valor_umid = umid;
         this.data = hora_atual;
-        this.data_formatada = dataFormatada;
-        this.medicao_tipo = unidade;
+        this.data_formatada = dataFormatada;       
     }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
+	
+	public Medicao(){
+        
+	}
+	
     public Date getData() {
         return data;
     }
@@ -40,4 +38,23 @@ class Medicao {
         this.data = data;
     }
 
+	public double getValor_temp() {
+		return valor_temp;
+	}
+
+	public void setValor_temp(double valor_temp) {
+		this.valor_temp = valor_temp;
+	}
+
+	public double getValor_umid() {
+		return valor_umid;
+	}
+
+	public void setValor_umid(double valor_umid) {
+		this.valor_umid = valor_umid;
+	}    
+    
+    
+
+    
 }
