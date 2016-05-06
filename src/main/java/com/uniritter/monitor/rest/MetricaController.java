@@ -13,10 +13,13 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+=======
+>>>>>>> origin/master
 import com.uniritter.monitor.domain.metricas.Medicao;
 import com.uniritter.monitor.domain.metricas.Metrica;
 import com.uniritter.monitor.domain.tipo.TipoTempo;
@@ -26,14 +29,35 @@ import com.uniritter.monitor.domain.tipo.TipoTempo;
 @Produces("application/json")
 @Consumes("application/json")
 public class MetricaController {
+<<<<<<< HEAD
 
 		
+=======
+	
+	
+	
+	
+	@GET
+	public Response getMetricas(){
+				
+		Metrica met = new Metrica(new Medicao(20, TipoTempo.temperatura));
+	    
+		String exemplo ="{\"metrica\": " + "\"" +met.getUnicaMedicao(1).getMedicao_tipo().toString() +"\"" + ":"
+				+ "\"" + met.getUnicaMedicao(1).getValor()+ "\"" + "}";
+		
+		return Response.ok(exemplo).build();
+	}
+>>>>>>> origin/master
 	
 	public void popMedicaoJson(String url) throws IOException {
 		
 		InputStream is = new URL(url).openStream();
 				
 		
+<<<<<<< HEAD
+=======
+		//service.
+>>>>>>> origin/master
 		
 		JsonFactory fac = new JsonFactory();
 		JsonParser jpar = fac.createParser(is);

@@ -84,6 +84,9 @@
 	<classpathentry kind="lib" path="C:/Users/Brusca/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.16/3a6274f658487d5bfff9af3862beff6da1e7fd52/slf4j-api-1.7.16.jar" sourcepath="C:/Users/Brusca/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.16/974c5dd98f38036bd98b3a8f7bf00ee0d91adbdd/slf4j-api-1.7.16-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Brusca/.gradle/caches/modules-2/files-2.1/org.jvnet/tiger-types/1.4/9f75db7dea926f497e76eae2cea36eca74ea508/tiger-types-1.4.jar" sourcepath="C:/Users/Brusca/.gradle/caches/modules-2/files-2.1/org.jvnet/tiger-types/1.4/3ee0fb831e883a546d7e678aa4fa8ffbce8e7d53/tiger-types-1.4-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Brusca/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/asm-all-repackaged/2.4.0-b34/86ad503fe0d63b04722b0fadebe9e9b57d97ce3/asm-all-repackaged-2.4.0-b34.jar" sourcepath="C:/Users/Brusca/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/asm-all-repackaged/2.4.0-b34/9629f042568529e44b7b06374ffa423120cf489b/asm-all-repackaged-2.4.0-b34-sources.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Brusca/Desktop/json-lib-2.4-jdk15.jar"/>
+=======
+>>>>>>> origin/master
 	<classpathentry kind="output" path="bin"/>
 </classpath>
