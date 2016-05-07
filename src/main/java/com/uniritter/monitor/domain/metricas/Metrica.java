@@ -9,13 +9,15 @@ public class Metrica {
 	
 	//Devese iniciar uma Array list para usar seus metodos
     private ArrayList<Medicao> medicoes = new ArrayList<Medicao>();
-    private Tipo tipo;
-    private Host host;
+    private String tipo;
+    private String host;
     private String periodicidade;
+	private Long id;
     
        
-    public Metrica(Tipo tipo, Host host) {
-        this.tipo = tipo;
+    public Metrica(Long id, String tipo, String host) {
+        this.id = id;
+    	this.tipo = tipo;
         this.host = host;
     }
     
@@ -25,23 +27,7 @@ public class Metrica {
 
     public ArrayList<Medicao> getMedicoes() {
         return medicoes;
-    }
-
-    public Tipo getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
-    }
-
-    public Host getHost() {
-        return host;
-    }
-
-    public void setHost(Host host) {
-        this.host = host;
-    }
+    }    
     
     public void insereNovaMedicao(Medicao medicao) {
         medicoes.add(medicao);

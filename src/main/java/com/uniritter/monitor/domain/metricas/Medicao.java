@@ -18,21 +18,6 @@ public class Medicao {
     
     TipoTempo medicao_tipo;
 
-<<<<<<< HEAD
-=======
-
-	public Medicao(double valor, TipoTempo unidade) {
-        this.valor = valor;
-        this.data = hora_atual;
-        this.data_formatada = dataFormatada;
-        this.medicao_tipo = unidade;
-    }
-
-    public double getValor() {
-        return valor;
-    }
->>>>>>> origin/master
-
 	public Medicao(double temp, double umid, String hora) {
         this.valor_temp = temp;
         this.valor_umid = umid;
@@ -56,7 +41,6 @@ public class Medicao {
 		return medicao_tipo;
 	}
 
-<<<<<<< HEAD
 	public double getValor_temp() {
 		return valor_temp;
 	}
@@ -71,14 +55,7 @@ public class Medicao {
 
 	public void setValor_umid(double valor_umid) {
 		this.valor_umid = valor_umid;
-	}    
-    
+	}   
     
 
-    
-=======
-	public void setMedicao_tipo(TipoTempo medicao_tipo) {
-		this.medicao_tipo = medicao_tipo;
-	}
->>>>>>> origin/master
 }

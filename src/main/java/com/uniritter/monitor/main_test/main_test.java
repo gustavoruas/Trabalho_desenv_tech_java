@@ -31,21 +31,26 @@ public class main_test {
 		    	if("agora".equals(node_field)){
 		    		
 		    		jpar.nextToken();  // Required for opening each node { object
+		    		int i = 0;
 		    		while(jpar.nextToken() != JsonToken.END_OBJECT){
 		    			
 		    			node_field = jpar.getCurrentName();
+		    					    				    		
 		    			
-		    			if("temperatura".equals(node_field)){
-		    				System.out.println("temperatura: " + jpar.getText() + " - " + jpar.get);
+		    			//&& (!jpar.getText().equals(node_field)) inserido para remover replicação do Token Name no valor
+		    			if("temperatura".equals(node_field) && (!jpar.getText().equals(node_field))){
+		    				System.out.println("temperatura: " + jpar.getText());
 		    			}
 		    			
-		    			if("umidade".equals(node_field)){
+		    			if("umidade".equals(node_field) && (!jpar.getText().equals(node_field))){
 		    				System.out.println("Umidade: "+ jpar.getText());
 		    			}
 		    			
-		    			if("data_hora".equals(node_field)){
+		    			if("data_hora".equals(node_field) && (!jpar.getText().equals(node_field))){
 		    				System.out.println("Hora data: "+ jpar.getText());
 		    			}
+		    			
+		    			
 		    		}		
 		    		
 		    	}
@@ -62,6 +67,7 @@ public class main_test {
 	}
 	
 	
+	/*
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -74,5 +80,6 @@ public class main_test {
 		}
 
 	}
+	*/
 
 }
