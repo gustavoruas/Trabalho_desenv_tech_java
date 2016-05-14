@@ -10,7 +10,7 @@ public class Metrica {
 	//Devese iniciar uma Array list para usar seus metodos
     private ArrayList<Medicao> medicoes = new ArrayList<Medicao>();
     private String tipo;
-    private String host;
+	private String host;
     private String periodicidade;
 	private Long id;
     
@@ -37,6 +37,12 @@ public class Metrica {
     	return medicoes.get(index);
     }
     
-   
+    public String getTipo() {
+		return tipo;
+	}
+    
+    public String getHost() {
+		return host;
+	}
     
 }

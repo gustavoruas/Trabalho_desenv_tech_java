@@ -19,13 +19,19 @@ public class MetricaDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public Metrica getMetriva(Long id){
-		return  this.jdbcTemplate.queryForObject("select * from metrica where id = ?", Metrica.class, id);
-	}
+	//public Metrica getMetrica(Long id){
+		//return  this.jdbcTemplate.queryForObject("select * from metrica where id = ?", Metrica.class, id);
+	//}
 	
 	public List<Metrica> getMetricas(){
 		return this.jdbcTemplate.query("select * from metrica order by id", new MetricaRowMapper());
 	}
 	
+	public int createMetrica(Metrica metrica) {
+		return jdbcTemplate.update(
+			"insert into metrica (nome,created) values (?,?)", 
+			metrica.getTipo(),
+			metrica.getHost());
+	}
 	
 }
