@@ -24,6 +24,7 @@ import com.uniritter.monitor.domain.metricas.Medicao;
 import com.uniritter.monitor.domain.metricas.Metrica;
 import com.uniritter.monitor.domain.metricas.MetricaService;
 import com.uniritter.monitor.domain.tipo.TipoTempo;
+import com.uniritter.monitor.rest.events.EventMetrica;
 
 @Component
 @Path("metricas")
@@ -31,89 +32,23 @@ import com.uniritter.monitor.domain.tipo.TipoTempo;
 @Consumes("application/json")
 public class MetricaController {
 
-	/*
-	public Medicao popMedicaoJson(String url) throws IOException {
-
-		InputStream is = new URL(url).openStream();
-
-		JsonFactory fac = new JsonFactory();
-		JsonParser jpar = fac.createParser(is);
-
-		try {
-
-			Medicao med = new Medicao();
-
-			jpar.nextToken();
-			while (jpar.nextToken() != JsonToken.END_OBJECT) {
-				String node_field = jpar.getCurrentName();
-
-				if ("agora".equals(node_field)) {
-
-					jpar.nextToken(); // Required for opening each node { object
-					while (jpar.nextToken() != JsonToken.END_OBJECT) {
-
-						node_field = jpar.getCurrentName();
-
-						// && (!jpar.getText().equals(node_field)) inserido para
-						// remover replicação do Token Name no valor
-						if ("temperatura".equals(node_field)
-								&& (!jpar.getText().equals(node_field))) {
-							
-							med.setValor_temp(jpar.getDoubleValue());
-
-						}
-
-						if ("umidade".equals(node_field)
-								&& (!jpar.getText().equals(node_field))) {
-							med.setValor_umid(jpar.getDoubleValue());
-
-						}
-
-						if ("data_hora".equals(node_field)
-								&& (!jpar.getText().equals(node_field))) {
-
-						}
-
-					}
-
-				}
-			}
-
-		} catch (JsonParseException je) {
-			System.out.println(je.getMessage());
-		} finally {
-			is.close();
-			jpar.close();
-		}
-
-	}
-
-*/
+    
+	@Autowired  //Nao se deve instanciar com NEW quando autowired.
+	MetricaService metService;
+	
 	@GET
 	public Response getMetricas() {
-        
-		String teste = "nulo";
-			
-		try{
-			
-			MetricaService metService = new MetricaService();
-			
-			metService.createMetrica(10, TipoTempo.temperatura);
-			
-			
-		}catch(Exception sde){
-			teste = sde.getMessage();
-		}
-		
-		return Response.ok(teste).build();
+        		
+		return Response.ok().build();
 	}
 
 	@POST
-	public Response createMetrica(Metrica metrica) {
+	public Response createMetrica(EventMetrica emetrica) {
 
-		// service.
+		Metrica nova = metService.createMetrica(emetrica.getPeriodicidade(), emetrica.getEnumTipo());
 
-		return Response.ok().build();
+		//return Response.ok().build();
+		return Response.accepted(nova).build();
 	}
 
 }

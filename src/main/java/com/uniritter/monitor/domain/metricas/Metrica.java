@@ -13,6 +13,31 @@ public class Metrica {
     
 	private Host host;
     private int periodicidade;
+    private Long id;
+	private TipoTempo tipo;
+    
+	
+	/*
+    public Metrica(Long id, Host host, int period ) {
+        this.id = id;    	
+        this.host = host;
+        this.periodicidade = period;
+    }
+    
+    public Metrica(Medicao met){
+    	this.medicoes.add(met);  
+    }
+    
+    public Metrica() {
+	}
+    */
+    
+    public Metrica(int period, TipoTempo tip){    	
+    	this.periodicidade = period;
+    	this.tipo = tip;
+    	
+    }
+    
 	public int getPeriodicidade() {
 		return periodicidade;
 	}
@@ -20,10 +45,6 @@ public class Metrica {
 	public void setPeriodicidade(int periodicidade) {
 		this.periodicidade = periodicidade;
 	}
-
-	private Long id;
-	private TipoTempo tipo;
-    
        
     public TipoTempo getTipo() {
 		return tipo;
@@ -32,22 +53,6 @@ public class Metrica {
 	public void setTipo(TipoTempo tipo) {
 		this.tipo = tipo;
 	}
-
-	public Metrica(Long id, Host host, int period ) {
-        this.id = id;    	
-        this.host = host;
-        this.periodicidade = period;
-    }
-    
-    public Metrica(int period, TipoTempo tip){    	
-    	this.periodicidade = period;
-    	this.tipo = tip;
-    	
-    }
-    
-    public Metrica(Medicao met){
-    	this.medicoes.add(met);    	
-    }
 
     public ArrayList<Medicao> getMedicoes() {
         return medicoes;

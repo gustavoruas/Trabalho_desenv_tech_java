@@ -1,5 +1,6 @@
 package com.uniritter.monitor.domain.metricas;
 import java.util.Date;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import com.uniritter.monitor.domain.host.Host;
 import com.uniritter.monitor.domain.persistance.MetricaDao;
 import com.uniritter.monitor.domain.tipo.Tipo;
 import com.uniritter.monitor.domain.tipo.TipoTempo;
+
+@Component
 public class MetricaRepository {
 
 	@Autowired
