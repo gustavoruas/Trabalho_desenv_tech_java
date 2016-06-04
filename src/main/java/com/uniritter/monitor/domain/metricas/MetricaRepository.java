@@ -4,7 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.uniritter.monitor.domain.host.Host;
 import com.uniritter.monitor.domain.persistance.MetricaDao;
+import com.uniritter.monitor.domain.tipo.Tipo;
+import com.uniritter.monitor.domain.tipo.TipoTempo;
 public class MetricaRepository {
 
 	@Autowired
@@ -14,7 +18,7 @@ public class MetricaRepository {
 		return this.metricaDao.getMetricas();
 	}
 
-	public Metrica createMetrica(String tipoMetrica, String host) {
+	public Metrica createMetrica(int periodicidade,TipoTempo tipoMetrica) {
 		
 		//Metrica nova = new Metrica(
 		//		null,
@@ -22,7 +26,9 @@ public class MetricaRepository {
 		//metricaDao.createMetrica(nova);
 		//return nova;
 		
-		Metrica nova = new Metrica(null, tipoMetrica, host);
+		//Adiciona Host JSON a ser cadastrado
+				
+		Metrica nova = new Metrica(periodicidade, tipoMetrica);
 		
 		metricaDao.createMetrica(nova);
 		

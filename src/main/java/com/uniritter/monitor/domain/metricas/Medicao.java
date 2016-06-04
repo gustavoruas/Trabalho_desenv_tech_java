@@ -12,7 +12,15 @@ public class Medicao {
     private Date data;
     private String data_formatada;
 
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss DD/MM/YYYY");
+    public String getData_formatada() {
+		return data_formatada;
+	}
+
+	public void setData_formatada(String data_formatada) {
+		this.data_formatada = data_formatada;
+	}
+
+	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss DD/MM/YYYY");
     Date hora_atual = Calendar.getInstance().getTime(); // Ou qualquer outra forma que tem
     String dataFormatada = sdf.format(hora_atual);
     

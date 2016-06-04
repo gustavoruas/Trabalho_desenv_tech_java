@@ -29,9 +29,10 @@ public class MetricaDao {
 	
 	public int createMetrica(Metrica metrica) {
 		return jdbcTemplate.update(
-			"insert into metrica (nome,created) values (?,?)", 
-			metrica.getTipo(),
-			metrica.getHost());
+			"insert into metrica (nome,periodicidade) values (?,?)", 
+			metrica.getTipo().toString(),
+			metrica.getPeriodicidade()			
+			);
 	}
 	
 }
