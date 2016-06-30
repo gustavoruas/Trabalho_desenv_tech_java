@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example for XML config file  -->
+<!-- http://makble.com/gradle-slf4j-integration-example-with-eclipse  -->
+
+<configuration>                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                              
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">                                                                                                                                                                        
+    <encoder>                                                                                                                                                                                                                                 
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>                                                                                                                                                             
+    </encoder>                                                                                                                                                                                                                                
+  </appender>                                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                              
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">                                                                                                                                                             
+    
+	<!-- A filter that limits INFO to log file --> 
+	<filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+    </filter>
+	
+	<file>log/notificacoes.log</file>
+    <append>true</append>                                                                                                                                                                                                                  
+    <encoder>                                                                                                                                                                                                                                 
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>                                                                                                                                                             
+    </encoder>                                                                                                                                                                                                                                
+  </appender>              
+                                                                                                                                                                                                                                              
+  <!-- Configure so that it outputs to both console and log file --> 
+  <root level="DEBUG">                                                                                                                                                                                             
+    <appender-ref ref="STDOUT" />  
+    <appender-ref ref="FILE" />	
+  </root>
+                                                                                                                                                                                                                                           
+</configuration> 

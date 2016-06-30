@@ -13,14 +13,20 @@ import com.uniritter.monitor.domain.tipo.TipoTempo;
 public class MetricaService {
 	@Autowired
 	MetricaRepository repository;
-	
-	Host host = new Host("porto-alegre", "http://developers.agenciaideias.com.br/tempo/json/");
-	
+			
 	public List<Metrica> getMetricas() {
 		return repository.getMetricas();
 	}
 	
+	public List<Metrica> getMetrica(int id){
+		return repository.getMetrica(id);
+	}
+	
 	public Metrica createMetrica(int periodicidade, TipoTempo tipoMetrica) {
 		return repository.createMetrica(periodicidade, tipoMetrica);
+	}
+	
+	public int deleteMetrica(Long id){
+		return this.repository.deleteMetrica(id);
 	}
 }

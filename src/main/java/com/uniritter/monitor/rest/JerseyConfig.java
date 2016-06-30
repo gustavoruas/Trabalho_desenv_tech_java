@@ -9,6 +9,7 @@ public class JerseyConfig extends ResourceConfig{
 
 	public JerseyConfig(){
 		register(MetricaController.class);
+		register(RegraController.class);
 	}
 	
 }

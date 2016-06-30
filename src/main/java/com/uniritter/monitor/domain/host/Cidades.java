@@ -1,8 +1,10 @@
 package com.uniritter.monitor.domain.host;
 
 public enum Cidades {
-	sao_paulo ("sao paulo-SP"),
-	porto_alegre ("porto alegre-rs");
+	sao_paulo ("BRXX0232"),
+	porto_alegre ("BRXX0186"),
+	florianopolis("BRXX0091"),
+	curitiba("BRXX0079");
 	
 	private String nome;
 	

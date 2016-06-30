@@ -7,6 +7,11 @@ public class Grupo {
 	//http://developers.agenciaideias.com.br/tempo
 	//http://developers.agenciaideias.com.br/tempo/json/porto%20alegre-rs	
 	//http://www.mkyong.com/java/jackson-streaming-api-to-read-and-write-json/
+	//http://developers.agenciaideias.com.br/tempo/json/porto%20alegre-rs
+	
+	//Working
+	//http://hgbrasil.com/status/weather/
+	//http://api.hgbrasil.com/weather/?format=json&cid=
 	
     private String tipo;
     private String nome_grupo;

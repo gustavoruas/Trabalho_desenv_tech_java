@@ -1,83 +1,63 @@
 package com.uniritter.monitor.main_test;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.URL;
-import java.nio.charset.Charset;
 
-import com.fasterxml.jackson.core.JsonFactory;
+import java.io.IOException;
+
+import java.util.Properties;
+
+import org.apache.log4j.Level;
+
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
+import com.uniritter.monitor.domain.alertas.Notificacao;
+import com.uniritter.monitor.domain.host.Cidades;
+import com.uniritter.monitor.domain.host.Host;
+import com.uniritter.monitor.domain.metricas.Medicao;
+import com.uniritter.monitor.rest.ServiceJsonMedicao;
 
 
 public class main_test {
-    
+    	
+	public static Properties props = System.getProperties();
 	
-	public static void lerJsondeURL(String url) throws IOException {
-		InputStream is = new URL(url).openStream();
-		
-		JsonFactory fac = new JsonFactory();
-		JsonParser  jpar = fac.createParser(is);
-				
-		try{
-		    jpar.nextToken();
-		    while(jpar.nextToken() != JsonToken.END_OBJECT){
-		    	String node_field = jpar.getCurrentName();		    	
-		    	
-		    	if("agora".equals(node_field)){
-		    		
-		    		jpar.nextToken();  // Required for opening each node { object
-		    		int i = 0;
-		    		while(jpar.nextToken() != JsonToken.END_OBJECT){
-		    			
-		    			node_field = jpar.getCurrentName();
-		    					    				    		
-		    			
-		    			//&& (!jpar.getText().equals(node_field)) inserido para remover replicação do Token Name no valor
-		    			if("temperatura".equals(node_field) && (!jpar.getText().equals(node_field))){
-		    				System.out.println("temperatura: " + jpar.getText());
-		    			}
-		    			
-		    			if("umidade".equals(node_field) && (!jpar.getText().equals(node_field))){
-		    				System.out.println("Umidade: "+ jpar.getText());
-		    			}
-		    			
-		    			if("data_hora".equals(node_field) && (!jpar.getText().equals(node_field))){
-		    				System.out.println("Hora data: "+ jpar.getText());
-		    			}
-		    			
-		    			
-		    		}		
-		    		
-		    	}
-		    	
-		    }
-			
-		}catch(JsonParseException je){
-			System.out.println(je.getMessage());
-		}finally{
-			is.close();
-			jpar.close();
-		}	
-		
-	}
-	
-	
+	//PropertyConfigurator.configure("log4j.properties");
 	/*
+		
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		try {
-			main_test.lerJsondeURL("http://developers.agenciaideias.com.br/tempo/json/porto%20alegre-rs");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			e.getMessage();
+		System.out.println("Current working directory is " + props.getProperty("user.dir"));
+		
+		
+		
+		Notificacao.log(main_test.class).fatal("Teste te LOG 4j");
+		
+		Notificacao.log(main_test.class).debug("Teste te LOG 4j");
+						
+		//System.out.println(host.getUrl());
+						
+		try{		
+			Host host = new Host("http://api.hgbrasil.com/weather/?format=json&cid=", Cidades.porto_alegre.toString());	
+			
+			System.out.println(host.getUrl());
+			
+			Medicao med = ServiceJsonMedicao.getJsonMedicao(host);
+									
+			System.out.println("teste");
+			
+			
+			System.out.println(med.getData_formatada() + " " +
+			        med.getValor_temp() + " " +
+					med.getValor_umid() + " " 				
+					);							
+			
+		}catch(JsonParseException je){
+			System.out.println(je.getMessage());
+		}catch(IOException ioe){
+			System.out.println(ioe.getMessage());
+		}catch(Exception e){
+			System.out.println(e.getMessage());
 		}
+		
 
 	}
 	*/

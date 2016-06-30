@@ -2,6 +2,8 @@ package com.uniritter.monitor.domain.metricas;
 
 import com.uniritter.monitor.domain.host.Host;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.uniritter.monitor.domain.tipo.Tipo;
 import com.uniritter.monitor.domain.tipo.TipoTempo;
 
@@ -9,7 +11,7 @@ public class Metrica {
     
 	
 	//Devese iniciar uma Array list para usar seus metodos
-    private ArrayList<Medicao> medicoes = new ArrayList<Medicao>();
+    private List<Medicao> medicoes = new ArrayList<Medicao>();
     
 	private Host host;
     private int periodicidade;
@@ -17,10 +19,10 @@ public class Metrica {
 	private TipoTempo tipo;
     
 	
-	/*
-    public Metrica(Long id, Host host, int period ) {
+	
+    public Metrica(Long id, TipoTempo tipo, int period ) {
         this.id = id;    	
-        this.host = host;
+        this.tipo = tipo;
         this.periodicidade = period;
     }
     
@@ -29,8 +31,7 @@ public class Metrica {
     }
     
     public Metrica() {
-	}
-    */
+	}    
     
     public Metrica(int period, TipoTempo tip){    	
     	this.periodicidade = period;
@@ -54,7 +55,7 @@ public class Metrica {
 		this.tipo = tipo;
 	}
 
-    public ArrayList<Medicao> getMedicoes() {
+    public List<Medicao> getMedicoes() {
         return medicoes;
     }    
     
@@ -65,6 +66,14 @@ public class Metrica {
     public Medicao getUnicaMedicao(int index){
     	return medicoes.get(index);
     }   
+    
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
     
     
 }

@@ -8,26 +8,16 @@ public class Host {
     private String nome;    
     private URL url;    
     
-    public Host(int IP, String nome, Grupo grupo) {
-        this.IP = IP;
-        this.nome = nome;        
-    }
-    
-    public Host(URL urli, String nome){
-    	this.url = urli;
-    	this.nome = nome;
-    }
-    
-        
+                       
     public Host(String url_base, String cidade){
     	try{
     		
     		this.url = new URL(url_base + cidade);
     		
     	}catch(MalformedURLException eml){
-    		this.url = null;
+    		
     	}finally {
-			this.url = null;
+			this.url = url;
 		}    	    	
     	
     }
@@ -49,7 +39,7 @@ public class Host {
     }
     
     public void setURL (URL urlp){
-    	this.url = url;
+    	this.url = urlp;
     }
 
     public void setNome(String nome) {

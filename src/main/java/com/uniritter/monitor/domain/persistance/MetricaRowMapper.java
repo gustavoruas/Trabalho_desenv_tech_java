@@ -23,8 +23,9 @@ public class MetricaRowMapper implements RowMapper<Metrica> {
 		
 		
 		return new Metrica(	
-				rs.getInt("periodicidade"),
-				tipo				   		   
+				rs.getLong("id"),
+				tipo,
+				rs.getInt("periodicidade")								   		   
 				);
 	}
 }
