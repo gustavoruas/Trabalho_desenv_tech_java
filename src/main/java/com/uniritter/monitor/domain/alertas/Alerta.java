@@ -31,5 +31,9 @@ public class Alerta {
 		this.medicoes = medicoes;
 	}
 	
+	public void addMedicoes(Medicao med){
+		this.medicoes.add(med);
+	}
+	
 	
 }

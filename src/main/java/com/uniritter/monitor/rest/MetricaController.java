@@ -68,7 +68,7 @@ public class MetricaController {
 		
 		//Verifica se nova medicao fere alguma regra
 		Notificacao.log(RegraController.class).info("Medição adquirida. Verificando regras para metrica selecionada:" + met.getId());
-		alertaServ.disparaAlertaMetrica(met);
+		alertaServ.disparaAlertaUnicoMetrica(met);
 		
 				
 		return Response.ok(met).build();

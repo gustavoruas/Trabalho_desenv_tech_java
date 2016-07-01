@@ -28,5 +28,9 @@ public class MedicaoRepository {
 		return med;
 		
 	}
+
+	public List<Medicao> getMedicaoMaisAtualMetrica(Long id) {		
+		return this.medicaoDAO.getMedicaoMaisAtualMetrica(id);
+	}
 	
 }

@@ -18,6 +18,10 @@ public class MedicaoService {
 	public List<Medicao> getMedicoesPorMetrica(Long id){
 		return this.medicaoRepository.getMedicoesPorMetrica(id);
 	}
+	
+	public List<Medicao> getMedicaoMaisAtualMetrica(Long id){
+		return this.medicaoRepository.getMedicaoMaisAtualMetrica(id);
+	}
 		
 	public Medicao createMedicao(Medicao med,Long metrica_id){
 		return medicaoRepository.createMedicao(med, metrica_id);	

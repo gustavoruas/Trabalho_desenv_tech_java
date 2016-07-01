@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+
 import com.uniritter.monitor.domain.metricas.Medicao;
 
 @Component
@@ -42,6 +43,22 @@ public class MedicaoDao {
 				metrica_id
 				);			
 				
+	}
+
+	public List<Medicao> getMedicaoMaisAtualMetrica(Long id) {
+
+		
+		return this.jdbcTemplate.query("select * from medicao where metrica_id = ? and id = (select max(id) from medicao)", new MedicaoRowMapper(),id);
+		
+		/*
+		return this.jdbcTemplate.queryForObject(
+				  "select * from medicao"
+				+ " where metrica_id = ?" 
+				+ " and id = ("
+				+ "  select max(id) from medicao" + 
+				  "  where metrica_id = ?)",
+				Medicao.class, id, id);
+				*/
 	}
 	
 }
