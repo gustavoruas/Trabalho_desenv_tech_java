@@ -1,5 +1,7 @@
 package com.uniritter.monitor;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -13,6 +15,11 @@ public class MonitorApplicationTests {
 
 	@Test
 	public void contextLoads() {
+	}
+	
+	@Test
+	public void testeSeVerdade(){
+		assertTrue(true);
 	}
 
 }
